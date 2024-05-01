@@ -19,5 +19,18 @@ const Pokemon= () => {
     
         fetchData()
         [searchTerm]
-    })
+    });
+
+    // ikke ferdy enda må lese mer på api-en
+
+    // if (!pokemondata) return <p>Loading...</p>
+
+    // return(
+    //     <section>
+    //         <h1>{pokemondata}</h1>
+    //         <p> Typa: {pokemondata.types.map(type =>type.type.name).join(',')}</p>
+    //         <p> Stats: {pokemondata.stats.map(stat =>type.type.name).join(',')}</p>
+    //         <p> Abilities: {pokemondata.types.map(type =>type.type.name).join(',')}</p>
+    //     </section>
+    // )
 }
