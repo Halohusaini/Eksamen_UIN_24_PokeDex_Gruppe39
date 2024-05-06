@@ -63,7 +63,7 @@ export default function Home() {
         <h2>Explore Pokémon by Type</h2>
         <ul>
           {types.map(type => (
-            <li key={type}>
+            <li key={type}  className={type.toLowerCase().replace(" ", "")}>
               <Link to={`/type/${type}`}>{type}</Link>
               <img src={`/type symboler/${type}.png`} alt={type} />
             </li>
