@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+
 export default function Home() {
   const [pokemondata, setpokemondata] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [types, setTypes] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,6 +18,8 @@ export default function Home() {
         });
         const results= await Promise.all(promises);
         setpokemondata(results)
+        
+
       } catch (error) {
         console.error("Error fetching data:", error);
         setpokemondata([]);
@@ -51,6 +55,15 @@ export default function Home() {
           <Link to="/pokedex">Explore Pokedex</Link>
         </button>
       </section>
+      <section className="pokemon-types">
+        <h2>Explore Pokémon by Type</h2>
+        <ul>
+            <li><Link to="/type/fire">Fire</Link></li>
+            <li><Link to="/type/water">Water</Link></li>
+            <li><Link to="/type/grass">Grass</Link></li>
+            {/* More types as needed */}
+        </ul>
+    </section>
     </main>
   );
 }
