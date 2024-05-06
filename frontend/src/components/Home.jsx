@@ -65,6 +65,7 @@ export default function Home() {
           {types.map(type => (
             <li key={type}>
               <Link to={`/type/${type}`}>{type}</Link>
+              <img src={`/type symboler/${type}.png`} alt={type} />
             </li>
           ))}
         </ul>
