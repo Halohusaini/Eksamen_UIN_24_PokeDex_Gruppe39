@@ -18,7 +18,11 @@ export default function Home() {
         });
         const results= await Promise.all(promises);
         setpokemondata(results)
-        
+        // fetching av pokemon types
+
+        const poketypes= await fetch('https://pokeapi.co/api/v2/type')
+        const typedata= await poketypes.json()
+        setTypes(typedata.results.map(type => type.name));
 
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -58,10 +62,11 @@ export default function Home() {
       <section className="pokemon-types">
         <h2>Explore Pokémon by Type</h2>
         <ul>
-            <li><Link to="/type/fire">Fire</Link></li>
-            <li><Link to="/type/water">Water</Link></li>
-            <li><Link to="/type/grass">Grass</Link></li>
-            {/* More types as needed */}
+          {types.map(type => (
+            <li key={type}>
+              <Link to={`/type/${type}`}>{type}</Link>
+            </li>
+          ))}
         </ul>
     </section>
     </main>
