@@ -8,10 +8,14 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon?&img&limit=9`);
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=9`);
         const data = await response.json();
-        console.log(data);
-        setpokemondata(data.results);
+        const promises= data.results.map(async(pokemon) => {
+            const response= await fetch(pokemon.url);
+            return response.json();
+        });
+        const results= await Promise.all(promises);
+        setpokemondata(results)
       } catch (error) {
         console.error("Error fetching data:", error);
         setpokemondata([]);
@@ -32,7 +36,11 @@ export default function Home() {
         <h2>Featured Pokémons</h2>
         {pokemondata.map((pokemon) => (
           <Link key={pokemon.name} to={`/pokemon/${pokemon.name}`}>
-            {pokemon.name}
+            <div>
+            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+                {pokemon.name}
+            </div>
+            
           </Link>
         ))}
       </section>
