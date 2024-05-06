@@ -5,10 +5,14 @@ import { useParams, Link } from "react-router-dom";
 export default function Type() {
     const { type } = useParams();
     const [pokemons, setPokemons] = useState([])
+    // const [loading, setloading] = useState(false)
+    // const [error, setError]= useState('');
 
 
     useEffect(() => {
         const fetchPokemonsByType = async () => {
+            // setloading(true);
+            // setError('');
             try {
                 const response = await fetch(`https://pokeapi.co/api/v2/type/${type}`) 
                 const data = await response.json()
@@ -22,7 +26,7 @@ export default function Type() {
 
     return (
         <section>
-            <h1>Pokemons of Type; {type}</h1>
+            <h1>Pokemons of Type {type}</h1>
             <ul>
                 {pokemons.map(pokemon => (
                     <li key={pokemon.name}>
@@ -30,6 +34,7 @@ export default function Type() {
                     </li>
                 ))}
             </ul>
+            <Link to="/">Back to Home</Link>
         </section>
     )
 }
