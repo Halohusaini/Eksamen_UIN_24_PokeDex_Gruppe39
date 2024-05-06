@@ -6,7 +6,7 @@ export default function Teams() {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        const fetchData =  async() =>{
+        const fetchData = async() => {
             try {
                 const result = await fetch('Sanity-api-url skal hit')
                 const data = await result.json()
