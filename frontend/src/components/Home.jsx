@@ -10,7 +10,7 @@ export default function Home() {
     useEffect(()=>{
         const fetchData= async () =>{
             try{
-            const response= await fetch ('https://pokeapi.co/api/v2/pokemon?name=${searchTerm}limit=9')
+            const response= await fetch (`https://pokeapi.co/api/v2/pokemon?limit=9&name=${searchTerm}`)
             const data = await response.json();
             setpokemondata(data.results);
             } catch(error){
@@ -34,9 +34,12 @@ export default function Home() {
 
             <section className="featured-pokemon">
                 <h2>Fueatered pokemons</h2>
-                <Link to=""></Link>
-                <Link to=""></Link>
-                <Link to=""></Link>
+                {pokemondata.map((pokemon, index)=>(
+                    <div key={index}>
+                        <h3>{pokemon.name}</h3>
+                        <Link to={`/pokemon/${pokemon.name}`}>view details</Link>
+                    </div>
+                ))}
             </section>
 
             <section className="explore-more">
