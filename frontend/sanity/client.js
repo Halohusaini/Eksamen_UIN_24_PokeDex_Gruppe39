@@ -6,4 +6,5 @@ export const client = SanityClient({
     dataset: "production",
     useCdn: true,
     apiVersion: "2022-03-07"
+    
 })
