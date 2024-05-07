@@ -30,14 +30,26 @@ export default function Home() {
       }
     };
 
-    fetchData(); // Call fetchData unconditionally for initial load
-  }, []); // Correct dependency array
+    fetchData(); 
+  }, []); 
+
+  const handleSearch = () => {
+    console.log("Search for:", searchTerm)
+  }
 
   return (
     <main className="home">
       <header className="header">
-        <h1>Pokemon collection</h1>
-        <h2>MAIN POKEMONS</h2>
+        <Link to="/" className="logo">UIN POKEDEX</Link>
+        <nav>
+          <Link to="/teams">Teams</Link>
+          <div className="search-container">
+            <input type="text" placeholder="Search..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
+            <button onClick={handleSearch}>
+              <img src="/" alt="Search" />
+            </button>
+          </div>
+        </nav>
       </header>
 
       <section className="featured-pokemon">
