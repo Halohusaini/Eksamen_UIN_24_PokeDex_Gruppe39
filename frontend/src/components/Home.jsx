@@ -37,13 +37,13 @@ export default function Home() {
     <main className="home">
       <header>
         <h1>Pokemon collection</h1>
-        <p>Discover Pokemons</p>
+        <h2>MAIN POKEMONS</h2>
       </header>
 
       <section className="featured-pokemon">
-        <h2>Featured Pokémons</h2>
+        
         {pokemondata.map((pokemon) => (
-          <Link key={pokemon.name} to={`/pokemon/${pokemon.name}`}>
+          <Link key={pokemon.name} to={`/pokemon/${pokemon.name}`} className="pokemon-card">
             <div>
             <img src={pokemon.sprites.front_default} alt={pokemon.name} />
                 {pokemon.name}
@@ -52,13 +52,7 @@ export default function Home() {
           </Link>
         ))}
       </section>
-
-      <section className="explore-more">
-        <h2>Explore More</h2>
-        <button>
-          <Link to="/pokedex">Explore Pokedex</Link>
-        </button>
-      </section>
+      
       <section className="pokemon-types">
         <h2>Explore Pokémon by Type</h2>
         <ul>
