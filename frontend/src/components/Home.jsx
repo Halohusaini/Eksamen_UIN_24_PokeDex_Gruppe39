@@ -20,7 +20,7 @@ export default function Home() {
         setpokemondata(results)
         // fetching av pokemon types
 
-        const poketypes= await fetch('https://pokeapi.co/api/v2/type')
+        const poketypes= await fetch('https://pokeapi.co/api/v2/type?limit=18')
         const typedata= await poketypes.json()
         setTypes(typedata.results.map(type => type.name));
 
