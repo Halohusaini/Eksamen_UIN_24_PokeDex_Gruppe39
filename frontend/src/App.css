@@ -2,6 +2,9 @@ body{
   background-color: #ffffff;
   justify-content: center;
 }
+body p {
+  color:#000000;
+}
 
 .header{
   color: #000000;
