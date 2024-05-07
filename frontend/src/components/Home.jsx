@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     <main className="home">
-      <header>
+      <header className="header">
         <h1>Pokemon collection</h1>
         <h2>MAIN POKEMONS</h2>
       </header>
@@ -52,7 +52,7 @@ export default function Home() {
           </Link>
         ))}
       </section>
-      
+
       <section className="pokemon-types">
         <h2>Explore Pokémon by Type</h2>
         <ul>

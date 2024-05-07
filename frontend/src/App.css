@@ -1,4 +1,11 @@
+body{
+  background-color: #ffffff;
+  justify-content: center;
+}
 
+.header{
+  color: #000000;
+}
 .featured-pokemon {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
@@ -39,6 +46,10 @@
   align-items: center;
   justify-content: space-between; 
   padding: 10px; 
+}
+
+.pokemon-types h2{
+  color: #000000;
 }
 
 .pokemon-types img {
