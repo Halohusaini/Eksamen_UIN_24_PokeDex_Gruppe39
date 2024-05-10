@@ -44,10 +44,11 @@ export default function Type() {
         <main>
             <section>
                 <button><Link to="/">Home</Link></button>
+                <h1>Pokemons of Type {type}</h1>
             </section>
 
-        <section>
-            <h1>Pokemons of Type {type}</h1>
+        <section className="typestyle">
+            
             <ul>
                 {pokemons.map(pokemon => (
                     <li key={pokemon.name}>
