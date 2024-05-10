@@ -51,7 +51,7 @@ export default function Type() {
             <ul>
                 {pokemons.map(pokemon => (
                     <li key={pokemon.name}>
-                        <Link to={`/pokemons/${pokemon.name}`}>{pokemon.name}</Link>
+                        <Link to={`/pokemon/${pokemon.name}`}>{pokemon.name}</Link>
                        
                     </li>
                 ))}
