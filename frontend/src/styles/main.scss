@@ -68,7 +68,6 @@ body{
     list-style-type: none;                 
 }
 .typestyle li {
-  background: #f0f0f0; 
   text-align: center;   
   padding: 8px;        
   border: 1px solid #ccc; 
@@ -78,62 +77,95 @@ body{
   text-decoration: none;  
   color: #333;            
 }
-  
-  
+
+
+
+$normal-color: #dce1e6;
+$fighting-color:#f0c3d0;
+$flying-color: #dce4f4;
+$poison-color: #e6caf2;
+$ground-color:#f2c8b4;
+$rock-color: #f7eed4;
+$bug-color: #eaf4d3;
+$ghost-color: #d0d9f4;
+$steel-color: #d4edf7;
+$fire-color: #f4d5bf;
+$water-color: #cbe1f9;
+$grass-color: #cdf9c8;
+$electric-color: #f4eab8;
+$psychic-color: #f2c2c4;
+$ice-color: #d6f9f3;
+$dragon-color: #c6dff4;
+$dark-color: #d3cae3;
+$fairy-color: #f9dbf6;
   .normal{
-    background-color: #dce1e6;
+    background-color: $normal-color;
   }
   .fighting{
-    background-color: #f0c3d0;
+    background-color: $fighting-color;
   }
   .flying{
-    background-color: #dce4f4;
+    background-color: $flying-color;
   }
   .poison{
-    background-color: #e6caf2;
+    background-color: $poison-color;
   }
   .ground{
-    background-color: #f2c8b4;
+    background-color:$ground-color;
   }
-  .rock{
-    background-color: #f7eed4;
+  .rock {
+    background-color: $rock-color;
   }
-  .bug{
-    background-color: #eaf4d3;
+  
+  .bug {
+    background-color: $bug-color;
   }
-  .ghost{
-    background-color: #d0d9f4;
+  
+  .ghost {
+    background-color: $ghost-color;
   }
-  .steel{
-    background-color: #d4edf7;
+  
+  .steel {
+    background-color: $steel-color;
   }
-  .fire{
-    background-color: #f4d5bf;
+  
+  .fire {
+    background-color: $fire-color;
   }
-  .water{
-    background-color: #cbe1f9;
+  
+  .water {
+    background-color: $water-color;
   }
-  .grass{
-    background-color: #cdf9c8;
+  
+  .grass {
+    background-color: $grass-color;
   }
-  .electric{
-    background-color: #f4eab8;
+  
+  .electric {
+    background-color: $electric-color;
   }
-  .psychic{
-    background-color: #f2c2c4;
+  
+  .psychic {
+    background-color: $psychic-color;
   }
-  .ice{
-    background-color: #d6f9f3;
+  
+  .ice {
+    background-color: $ice-color;
   }
-  .dragon{
-    background-color: #c6dff4;
+  
+  .dragon {
+    background-color: $dragon-color;
   }
-  .dark{
-    background-color: #d3cae3;
+  
+  .dark {
+    background-color: $dark-color;
   }
-  .fairy{
-    background-color: #f9dbf6;
+  
+  .fairy {
+    background-color: $fairy-color;
   }
-  .unknown, .shadow{
+  
+  .unknown,
+  .shadow {
     visibility: hidden;
   }
