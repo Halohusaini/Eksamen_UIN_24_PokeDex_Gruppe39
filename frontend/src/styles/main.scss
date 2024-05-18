@@ -1,57 +1,55 @@
-body{
-    background-color: #ffffff;
-    justify-content: center;
-  }
-  body p {
-    color:#000000;
-  }
-  
-  .header{
+body {
+  background-color: #ffffff;
+  justify-content: center;
+  p {
     color: #000000;
   }
-  .featured-pokemon {
+}
+
+.header {
+  color: #000000;
+}
+
+.featured-pokemon {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  margin: 20px;
+}
+
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  img {
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+  }
+}
+
+.pokemon-types {
+  ul {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    grid-template-rows: repeat(3, 1fr); 
-    gap: 20px; 
-    margin: 20px; 
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
   }
-  
-  .pokemon-card {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    background-color: #f4f4f4; 
-    border: 1px solid #ccc; 
-    padding: 10px; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-  }
-  
-  .pokemon-card img {
-    width: 100%; 
-    height: auto; 
-    max-width: 150px; 
-  }
-  
-  
-  .pokemon-types ul {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); 
-    grid-template-rows: auto auto auto; 
-    gap: 10px; 
-    list-style: none; 
-    padding: 0; 
-  }
-  
-  .pokemon-types li {
-    border: 1px solid #ccc; 
+  li {
+    border: 1px solid #ccc;
     display: flex;
     align-items: center;
-    justify-content: space-between; 
-    padding: 10px; 
+    justify-content: space-between;
+    padding: 10px;
   }
-  
-  .pokemon-types h2{
+  h2 {
     color: #000000;
   }
   
@@ -60,24 +58,7 @@ body{
     height: auto; 
   }
   
-  .typestyle ul {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    grid-gap: 16px;                        
-    padding: 0;                            
-    list-style-type: none;                 
-}
-.typestyle li {
-  background: #f0f0f0; 
-  text-align: center;   
-  padding: 8px;        
-  border: 1px solid #ccc; 
-}
-
-.pokemon-type-list a {
-  text-decoration: none;  
-  color: #333;            
-}
+  
   
   
   .normal{
