@@ -10,7 +10,7 @@ export default function Teams() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await fetch('https://ehi8qumr.api.sanity.io/v1/data/query/production?query=*[_type == "team"]');
+                const result = await fetch('https://ehi8qumr.api.sanity.io/v1/data/query/production?query=*[_type == "team"]{title, slug, image{asset->{url}}}');
                 if (!result.ok) {
                     throw new Error(`HTTP error! status: ${result.status}`);
                 }
@@ -38,9 +38,11 @@ export default function Teams() {
             <h1>Teams</h1>
             <ul>
                 {teams.map(team => (
-                    <li key={team.slug?.current}>
-                        <Link to={`/teams/${team.slug?.current}`}>
-                            <img src={team.image?.asset?.url} alt={team.title} />
+                    <li key={team.slug.current}>
+                        <Link to={`/teams/${team.slug.current}`}>
+                            {team.image?.asset?.url && (
+                                <img src={team.image.asset.url} alt={team.title} />
+                            )}
                             <h2>{team.title}</h2>
                         </Link>
                     </li>
