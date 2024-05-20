@@ -22,6 +22,15 @@ export default function Type() {
                 }
                 const data = await response.json()
                 setPokemons(data.pokemon.map(p => p.pokemon));
+                const pokemonList = data.pokemon.map(p => p.pokemon);
+
+                const pokemonDetailsPromises = pokemonList.map(pokemon =>
+                  fetch(pokemon.url).then(response => response.json())
+              );
+
+              const detailedPokemons = await Promise.all(pokemonDetailsPromises);
+              setPokemons(detailedPokemons);
+
             } catch (error) {
                 console.error('There was an error fetching the pokemons by type:', error)
                 setError(error.toString())
@@ -84,22 +93,29 @@ export default function Type() {
     }
     return (
         <main>
-            <section>
+            <header className='type_header'>
                 <button><Link to="/">Home</Link></button>
-                <h1>Pokemons of Type {type}</h1>
-            </section>
+                <h1><img className='type_header_img'src={`/type symboler/${type}.png`} alt={type} />
+                {type}
+                </h1>
+            </header>
 
         <section className="typestyle">
             
             <ul>
                 {pokemons.map(pokemon => (
-                    <li key={pokemon.name} style={{ backgroundColor: getTypeColor(type) }}>
+                    <li style={{ backgroundColor: getTypeColor(type) }}>
                         <Link to={`/pokemon/${pokemon.name}`}>{pokemon.name}</Link>
-                       
+                        <div>
+                          {pokemon.sprites && <img src={pokemon.sprites.front_default} alt={pokemon.name} />}
+                          <p>#{pokemon.id.toString().padStart(3, '0')}</p>
+                        </div>
+                        
                     </li>
                 ))}
             </ul>
         </section>
+        
         </main>
     )
 }

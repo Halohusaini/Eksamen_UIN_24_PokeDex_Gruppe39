@@ -55,6 +55,9 @@ body {
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
+
+  
+
   img {
     width: 100%;
     height: auto;
@@ -125,6 +128,8 @@ body {
   }
 }
 
+
+
 // Type-specific styles
 .normal { background-color: #dce1e6; }
 .fighting { background-color: #f0c3d0; }
@@ -149,4 +154,38 @@ body {
 .shadow {
   visibility: hidden;
 }
-  
+
+.type_header h1 {
+  color: black;
+}
+
+.type_header_img{
+  width: 50px;
+  height: auto;
+}
+
+.typestyle ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+}
+
+.typestyle li {
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 10px;
+}
+
+.typestyle li img {
+  width: 100px;
+  height: auto;
+}
+
+
+.typ,.stats{
+  color:black;
+}

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function Home() {
   const [pokemondata, setpokemondata] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [types, setTypes] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,8 +35,10 @@ export default function Home() {
   }, []); 
 
   const handleSearch = () => {
-    console.log("Search for:", searchTerm)
-  }
+    navigate(`/search/${searchTerm.toLowerCase()}`);
+};
+
+  
 
   return (
     <main className="home">
@@ -59,6 +62,7 @@ export default function Home() {
             <div>
             <img src={pokemon.sprites.front_default} alt={pokemon.name} />
                 {pokemon.name}
+                <p>#{pokemon.id.toString().padStart(3, '0')}</p>
             </div>
             
           </Link>

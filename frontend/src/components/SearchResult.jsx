@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 
 export default function SearchResults() {
   const { pokemon } = useParams();
@@ -8,62 +8,50 @@ export default function SearchResults() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
+    setError(null);
+    console.log(`Fetching data for: ${pokemon}`);
+
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("No pokemon Found matching the Search");
+          throw new Error("No pokemon found matching the search");
         }
         return response.json();
       })
       .then((data) => {
+        console.log("Data received:", data);
         setPokemonData(data);
         setLoading(false);
       })
-      .catch(err => {
-        setError(err.message)
-        setLoading(false)
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+        setError(err.message);
+        setLoading(false);
       });
   }, [pokemon]);
 
-  if (loading) return <div>Loading. </div>;
+  if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <article>
-      {pokemonData ? (
-        <>
-          <header>
-            <h1>{pokemonData.name.toUpperCase()}</h1>
-          </header>
-          <figure>
-            <img src="" alt="" />
-            <figcaption>{pokemonData.name} appearance</figcaption>
-          </figure>
-          <section>
-            <h2>Characteristics</h2>
-            <p>Height: {pokemonData.height}</p>
-            <p>Weight: {pokemonData.weight}</p>
-          </section>
-          <section>
-            <h2>Abilities</h2>
-            <ul>
-              {pokemonData.abilities.map((ability, index) => (
-                <li key={index}>{ability.ability.name}</li>
-              ))}
-            </ul>
-          </section>
-          <section>
-            <h2>Types</h2>
-            <ul>
-              {pokemonData.types.map((type, index) => (
-                <li key={index}>{type.type.name}</li>
-              ))}
-            </ul>
-          </section>
-        </>
-      ) : (
-        <p>No Pokemon details available</p>
-      )}
-    </article>
+    <main>
+      <header>
+        <button><Link to="/">Home</Link></button>
+      </header>
+      <section className="resulted_pokemon">
+        {pokemonData ? (
+          <Link key={pokemonData.name} to={`/pokemon/${pokemonData.name}`} className="pokemon-card">
+            <div>
+              <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
+              {pokemonData.name}
+              <p>#{pokemonData.id.toString().padStart(3, '0')}</p>
+            </div>
+          </Link>
+        ) : (
+          <p>No Pokemon details available</p>
+        )}
+      </section>
+    </main>
   );
 }
