@@ -142,11 +142,19 @@ body {
 .shadow {
   visibility: hidden;
 }
-  
+
+.type_header h1 {
+  color: black;
+}
+
+.type_header_img{
+  width: 50px;
+  height: auto;
+}
 
 .typestyle ul {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 20px;
 }
 
@@ -164,3 +172,5 @@ body {
   width: 100px;
   height: auto;
 }
+
+

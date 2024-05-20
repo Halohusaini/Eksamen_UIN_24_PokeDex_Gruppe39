@@ -36,6 +36,7 @@ export default function Home() {
   const handleSearch = () => {
     console.log("Search for:", searchTerm)
   }
+  
 
   return (
     <main className="home">
@@ -59,6 +60,7 @@ export default function Home() {
             <div>
             <img src={pokemon.sprites.front_default} alt={pokemon.name} />
                 {pokemon.name}
+                <p>#{pokemon.id.toString().padStart(3, '0')}</p>
             </div>
             
           </Link>

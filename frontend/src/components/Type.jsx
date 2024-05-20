@@ -93,10 +93,12 @@ export default function Type() {
     }
     return (
         <main>
-            <section>
+            <header className='type_header'>
                 <button><Link to="/">Home</Link></button>
-                <h1>Pokemons of Type {type}</h1>
-            </section>
+                <h1><img className='type_header_img'src={`/type symboler/${type}.png`} alt={type} />
+                {type}
+                </h1>
+            </header>
 
         <section className="typestyle">
             
@@ -106,12 +108,14 @@ export default function Type() {
                         <Link to={`/pokemon/${pokemon.name}`}>{pokemon.name}</Link>
                         <div>
                           {pokemon.sprites && <img src={pokemon.sprites.front_default} alt={pokemon.name} />}
+                          <p>#{pokemon.id.toString().padStart(3, '0')}</p>
                         </div>
                         
                     </li>
                 ))}
             </ul>
         </section>
+        
         </main>
     )
 }
