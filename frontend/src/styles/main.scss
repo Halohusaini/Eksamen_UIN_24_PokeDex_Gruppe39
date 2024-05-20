@@ -12,6 +12,18 @@ body {
   color: #000000;
   text-align: center;
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .menu {
+    display: flex;
+
+    .menu-button {
+      margin-right: 10px;
+    }
+  }
+  
 }
 
 .featured-pokemon {
