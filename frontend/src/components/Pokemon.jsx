@@ -46,6 +46,7 @@ const Pokemon = () => {
 
     <section>
       <h1>{pokemonData.name}</h1>
+      <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
       <p>Types: {pokemonData.types.map(t => t.type.name).join(', ')}</p>
       <p>Stats: {pokemonData.stats.map(s => `${s.stat.name}: ${s.base_stat}`).join(', ')}</p>
       <div>
@@ -58,7 +59,7 @@ const Pokemon = () => {
           </div>
           ))}
         </div>
-      <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
+      
     </section>
     </main>
 
