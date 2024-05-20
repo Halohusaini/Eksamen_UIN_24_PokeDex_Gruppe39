@@ -51,15 +51,23 @@ const Pokemon = () => {
       <p>Stats: {pokemonData.stats.map(s => `${s.stat.name}: ${s.base_stat}`).join(', ')}</p>
       <div>
           <h2>Abilities</h2>
-          {abilityDetails.map((ability, index) => (
-            <div key={index}>
-              <h3>{ability.name}</h3>
-              <p><strong>Effect:</strong>{ability.effect_entries.find(entry => entry.language.name === 'en').effect}</p>
-              <p><strong>Short effect:</strong> {ability.effect_entries.find(entry => entry.language.name === 'en').short_effect}</p>
-          </div>
-          ))}
+          {abilityDetails.map((ability, index) => {
+            const effectEntry = ability.effect_entries?.find(entry => entry.language.name === 'en');
+            return (
+              <div key={index}>
+                <h3>{ability.name}</h3>
+                {effectEntry ? (
+                  <>
+                    <p><strong>Effect:</strong> {effectEntry.effect}</p>
+                    <p><strong>Short effect:</strong> {effectEntry.short_effect}</p>
+                  </>
+                ) : (
+                  <p>No effect available</p>
+                )}
+              </div>
+            );
+          })}
         </div>
-      
     </section>
     </main>
 
