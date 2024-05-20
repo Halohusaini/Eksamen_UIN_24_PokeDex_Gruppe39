@@ -40,16 +40,29 @@ const Pokemon = () => {
   if (!pokemonData) {
     return <div>No data found</div>;
   }
+  if (!pokemonData){
+    return <section>no data found</section>
+  }
 
   return (
     <main>
 
-    <section>
+    <section className="pokemon-styles">
       <h1>{pokemonData.name}</h1>
       <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
-      <p>Types: {pokemonData.types.map(t => t.type.name).join(', ')}</p>
-      <p>Stats: {pokemonData.stats.map(s => `${s.stat.name}: ${s.base_stat}`).join(', ')}</p>
-      <section>
+      <section className="typ">
+        {pokemonData.types.map((t) => (
+          <article key={t.type.name}>
+          <img src={`/type-symbols/${t.type.name}.png`} alt={t.type.name} />
+          </article>
+    ))}
+    </section>
+
+      <article className="stats">
+        Stats: {pokemonData.stats.map(s => `${s.stat.name}: ${s.base_stat}`).join(', ')}
+      </article>
+      
+      <section className="ability">
           <h2>Abilities</h2>
           {abilityDetails.map((ability, index) => {
             const effectEntry = ability.effect_entries?.find(entry => entry.language.name === 'en');
