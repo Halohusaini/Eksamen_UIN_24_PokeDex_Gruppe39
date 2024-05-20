@@ -38,6 +38,30 @@ export default function Teams() {
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error: {error}</p>;
 
+      if (teamSlug && team) {
+        // Render team details view
+        return (
+          <section>
+            <h1>{team.title}</h1>
+            {team.image?.asset?.url && <img src={team.image.asset.url} alt={team.title} />}
+            <ul>
+              {team.pokemons.map(pokemon => (
+                <li key={pokemon._id}>
+                  <h2>{pokemon.name}</h2>
+                  {pokemon.image && <img src={pokemon.image.asset.url} alt={pokemon.name} />}
+                  <p>Type: {pokemon.type.join(", ")}</p>
+                  <p>HP: {pokemon.stats.hp}</p>
+                  <p>Attack: {pokemon.stats.attack}</p>
+                  <p>Defense: {pokemon.stats.defense}</p>
+                  <p>Abilities: {pokemon.abilities.join(", ")}</p>
+                </li>
+              ))}
+            </ul>
+            <Link to="/teams">Back to Teams</Link>
+          </section>
+        );
+      }
+
     return (
         <section>
             <h1>Teams</h1>
