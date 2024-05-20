@@ -12,6 +12,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="teams" element={<Teams />} />
+        <Route path="teams/:teamSlug" element={<Teams/>}  />
         <Route path="type/:type" element={<Type />} />
         <Route path="pokemon/:name" element={<Pokemon />} />
       </Routes>

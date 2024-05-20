@@ -1,37 +1,42 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function Teams() {
+    const { teamSlug } = useParams();
     const [teams, setTeams] = useState([]);
+    const [team, setTeam] = useState(null)  
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const result = await fetch('https://ehi8qumr.api.sanity.io/v1/data/query/production?query=*[_type == "team"]{title, slug, image{asset->{url}}}');
-                if (!result.ok) {
-                    throw new Error(`HTTP error! status: ${result.status}`);
-                }
-                const data = await result.json();
-                console.log('Fetched data:', data); // Log the data for debugging
-                if (Array.isArray(data.result)) {
-                    setTeams(data.result); // Ensure data.result is an array
-                } else {
-                    throw new Error('API response is not an array');
-                }
-            } catch (error) {
-                console.error('Error fetching teams:', error);
-                setError(error);
+        const fetchTeams = async () => {
+          try {
+            const query = teamSlug 
+              ? `*[_type == "team" && slug.current == "${teamSlug}"]{..., pokemons[]->{name, image, type, stats, abilities}}`
+              : `*[_type == "team"]{title, slug, image{asset->{url}}}`;
+            const encodedQuery = encodeURIComponent(query);
+            const response = await fetch(`https://ehi8qumr.api.sanity.io/v1/data/query/production?query=${encodedQuery}`);
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
             }
+            const data = await response.json();
+            if (teamSlug) {
+              setTeam(data.result[0]);
+            } else {
+              setTeams(data.result);
+            }
+          } catch (error) {
+            setError(error.message);
+          } finally {
             setLoading(false);
+          }
         };
-        fetchData();
-    }, []);
-
-    if (loading) return <p>Loading teams...</p>;
-    if (error) return <p>Error loading teams: {error.message}</p>;
+        fetchTeams();
+      }, [teamSlug]);
+    
+      if (loading) return <p>Loading...</p>;
+      if (error) return <p>Error: {error}</p>;
 
     return (
         <section>
