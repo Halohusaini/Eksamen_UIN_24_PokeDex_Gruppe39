@@ -49,7 +49,7 @@ const Pokemon = () => {
       <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
       <p>Types: {pokemonData.types.map(t => t.type.name).join(', ')}</p>
       <p>Stats: {pokemonData.stats.map(s => `${s.stat.name}: ${s.base_stat}`).join(', ')}</p>
-      <div>
+      <section>
           <h2>Abilities</h2>
           {abilityDetails.map((ability, index) => {
             const effectEntry = ability.effect_entries?.find(entry => entry.language.name === 'en');
@@ -67,7 +67,7 @@ const Pokemon = () => {
               </div>
             );
           })}
-        </div>
+        </section>
     </section>
     </main>
 

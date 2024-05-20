@@ -102,11 +102,10 @@ export default function Type() {
             
             <ul>
                 {pokemons.map(pokemon => (
-                    <li key={pokemon.name} style={{ backgroundColor: getTypeColor(type) }}>
+                    <li style={{ backgroundColor: getTypeColor(type) }}>
                         <Link to={`/pokemon/${pokemon.name}`}>{pokemon.name}</Link>
                         <div>
                           {pokemon.sprites && <img src={pokemon.sprites.front_default} alt={pokemon.name} />}
-                                {pokemon.name}
                         </div>
                         
                     </li>
