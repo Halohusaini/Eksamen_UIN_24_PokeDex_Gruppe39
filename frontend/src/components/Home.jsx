@@ -6,6 +6,7 @@ export default function Home() {
   const [pokemondata, setpokemondata] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [types, setTypes] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
