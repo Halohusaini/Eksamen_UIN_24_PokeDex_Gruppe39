@@ -26,6 +26,18 @@ body {
   
 }
 
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 5px 10px;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+
+  
+}
 .featured-pokemon {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
