@@ -75,7 +75,7 @@ export default function Teams() {
       <ul className="team-list">
         {teams.map(team => (
           <li key={team.slug.current} className="team-item">
-            <h2>{team.title}</h2>
+            <Link to={`/teams/${team.slug.current}`} className="teams-link-text">{team.title}</Link>
             <Link to={`/teams/${team.slug.current}`} className="team-link">
               {team.image?.asset?.url && (
                 <img src={team.image.asset.url} alt={team.title} className="team-image" />
