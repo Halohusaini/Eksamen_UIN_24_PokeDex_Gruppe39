@@ -51,6 +51,23 @@ body {
       color: #999;
     }
   }
+  .search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .search-icon {
+      fill: #333;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
 
   
 }
