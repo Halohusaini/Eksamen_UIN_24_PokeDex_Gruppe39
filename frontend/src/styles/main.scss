@@ -242,7 +242,7 @@ body {
   width: 100%;
   max-width: 100%;
   padding: 16px;
-  background-color: #eaedef;
+  
  
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -251,6 +251,8 @@ body {
 
   width: 256px;
   height: 256px;
+  
+  border-radius: solid black ;
   
 }
 
@@ -262,10 +264,15 @@ body {
 }
 
 
-.stats {
-  text-align: left;
-  margin-bottom: 16px;
+.header_pokemon{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20px;
 }
+
+
+
 
 .stats h2 {
   font-size: 1.5rem;
@@ -274,8 +281,16 @@ body {
   text-transform: uppercase;
 }
 
-.stats div {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
+.stats section {
+  display: grid;
+  align-items: baseline;
+
+}
+
+.stats span:first-child {
+  text-align: left;
+}
+
+.stats span:last-child {
+  text-align: right;
 }
