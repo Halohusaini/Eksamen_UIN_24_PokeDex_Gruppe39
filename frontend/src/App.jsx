@@ -5,6 +5,7 @@ import Teams from "./components/Teams";
 import Type from "./components/Type";
 import SearchResult from "./components/SearchResult";
 import './styles/main.scss';
+import './styles/teams.scss';
 import Pokemon from "./components/Pokemon";
 
 export default function App() {
