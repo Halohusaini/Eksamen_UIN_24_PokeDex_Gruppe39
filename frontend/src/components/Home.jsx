@@ -44,8 +44,9 @@ export default function Home() {
     <main className="home">
       <header className="header">
         <Link to="/" className="logo">UIN POKEDEX</Link>
+        <Link to="/teams" className="menu-item">Teams</Link>
         <nav>
-          <Link to="/teams">Teams</Link>
+          
           <div className="search-container">
             <input type="text" placeholder="Search..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
             <button onClick={handleSearch}>
