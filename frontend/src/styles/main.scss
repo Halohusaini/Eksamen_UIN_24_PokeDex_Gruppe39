@@ -11,17 +11,17 @@ body {
 .header {
   color: #000000;
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  .menu {
-    display: flex;
+  .menu-item {
+    margin-right: 14rem;
 
-    .menu-button {
-      margin-right: 10px;
-    }
+    &:last-child {
+      margin-right: 0;
+    } 
   }
   
 }
