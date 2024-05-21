@@ -234,3 +234,48 @@ body {
 .typ,.stats{
   color:black;
 }
+.main_pokemons{
+ color: black;
+}
+
+.pokemon-styles {
+  width: 100%;
+  max-width: 100%;
+  padding: 16px;
+  background-color: #eaedef;
+ 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-styles img {
+
+  width: 256px;
+  height: 256px;
+  
+}
+
+.ability h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+
+.stats {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.stats h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.stats div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}

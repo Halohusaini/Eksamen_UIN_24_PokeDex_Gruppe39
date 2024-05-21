@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link} from "react-router-dom";
 
 const Pokemon = () => {
   const { name } = useParams();
@@ -45,7 +45,12 @@ const Pokemon = () => {
   }
 
   return (
-    <main>
+    <main className="main_pokemons">
+
+      <header>
+      <Link to="/" className="logo">UIN POKEDEX</Link>
+      <Link to="/teams" className="menu-item">Teams</Link>
+      </header>
 
     <section className="pokemon-styles">
       <h1>{pokemonData.name}</h1>
