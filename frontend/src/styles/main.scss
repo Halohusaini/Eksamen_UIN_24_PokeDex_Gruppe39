@@ -36,6 +36,22 @@ body {
   margin: 20px auto;
   background-color: #fff;
 
+
+  .search-input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    flex-grow: 1;
+    font-size: 16px;
+    border-radius: 25px;
+    color: #333;
+    background-color: transparent;
+    
+    &::placeholder {
+      color: #999;
+    }
+  }
+
   
 }
 .featured-pokemon {
