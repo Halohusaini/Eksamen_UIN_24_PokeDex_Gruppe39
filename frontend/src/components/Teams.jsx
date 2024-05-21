@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+;
 
 export default function Teams() {
   const { teamSlug } = useParams();
@@ -69,16 +70,17 @@ export default function Teams() {
   }
 
   return (
-    <section>
+    <section className="teams-section">
       <h1>Teams</h1>
-      <ul>
+      <ul className="team-list">
         {teams.map(team => (
-          <li key={team.slug.current}>
-            <Link to={`/teams/${team.slug.current}`}>
+          <li key={team.slug.current} className="team-item">
+            <h2>{team.title}</h2>
+            <Link to={`/teams/${team.slug.current}`} className="team-link">
               {team.image?.asset?.url && (
-                <img src={team.image.asset.url} alt={team.title} />
+                <img src={team.image.asset.url} alt={team.title} className="team-image" />
               )}
-              <h2>{team.title}</h2>
+              
             </Link>
           </li>
         ))}
