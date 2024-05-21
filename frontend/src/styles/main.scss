@@ -26,6 +26,51 @@ body {
   
 }
 
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 5px 10px;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+
+
+  .search-input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    flex-grow: 1;
+    font-size: 16px;
+    border-radius: 25px;
+    color: #333;
+    background-color: transparent;
+    
+    &::placeholder {
+      color: #999;
+    }
+  }
+  .search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .search-icon {
+      fill: #333;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+
+  
+}
 .featured-pokemon {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
