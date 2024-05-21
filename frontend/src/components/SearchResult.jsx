@@ -37,7 +37,8 @@ export default function SearchResults() {
   return (
     <main>
       <header>
-        <button><Link to="/">Home</Link></button>
+        <Link to="/">Home</Link>
+        <Link to="/teams" className="menu-item">Teams</Link>
       </header>
       <section className="resulted_pokemon">
         {pokemonData ? (

@@ -47,7 +47,7 @@ const Pokemon = () => {
   return (
     <main className="main_pokemons">
 
-      <header>
+      <header className="header_pokemon">
       <Link to="/" className="logo">UIN POKEDEX</Link>
       <Link to="/teams" className="menu-item">Teams</Link>
       </header>
@@ -64,7 +64,15 @@ const Pokemon = () => {
     </section>
 
       <article className="stats">
-        Stats: {pokemonData.stats.map(s => `${s.stat.name}: ${s.base_stat}`).join(', ')}
+      <h2>Stats</h2>
+      <section>
+        {pokemonData.stats.map((s) => (
+          <section key={s.stat.name}>
+            <span>{s.stat.name.charAt(0).toUpperCase() + s.stat.name.slice(1)}:</span>
+            <span>{s.base_stat}</span>
+          </section>
+        ))}
+      </section>
       </article>
       
       <section className="ability">
